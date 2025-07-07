@@ -1,0 +1,42 @@
+#change current working directory to script_git folder 
+$ cd 'K:\BramBurleson\000_datasets_and_scripts\20250603_NAT_V2_fMRI_pilots\NAT_V2_fMRI_pilots\scripts_git'
+
+#initialize empty git hub repository
+$ git init
+Initialized empty Git repository in //nasac-m2/m-GSani/BramBurleson/000_datasets_and_scripts/20250603_NAT_V2_fMRI_pilots/NAT_V2_fMRI_pilots/scripts_git/.git/
+
+#stage files	
+$ git add .
+
+#commit folder with message
+$ git commit -m "Initial commit: NAT V2 fmri pilot scripts"
+
+#oops wrong author initially we committed with bram.burleson@unige.ch
+#change user to bram and email to bram.burleson@gmail.com
+
+#name
+$ git config user.name bram
+$ git config --get user.name
+bram
+
+#email
+$ git config user.email bram.burleson@gmail.com
+$ git config --get user.email
+bram.burleson@gmail.com
+
+#commit again with correct author
+git commit --amend --reset-author # rewrites the just-made commit
+
+#set remote git link to my online github repo
+git remote set-url origin https://github.com/BramBurleson/NAT_V2.git
+
+#push
+git push -u origin main
+
+#push fails because there already were commits on online repo
+
+#pull existing commits and rebase
+git pull --rebase origin main   # fetches README commit, re-bases your commit on top
+
+#push (succesfully)
+git push -u origin main         # now succeeds
