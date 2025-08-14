@@ -29,7 +29,7 @@ from nilearn.glm import threshold_stats_img
 #SETUP
 smoothing_parameter = 6
 subject_labels = ['sub-01', 'sub-02', 'sub-03', 'sub-04', 'sub-05', 'sub-06', 'sub-07', 'sub-08', 'sub-09']
-mvpa_folder = "run_level_glm"
+run_level_glm_folder = "run_level_glm"
 task_id =  "nat"
 
 #load FMRI_master parameters
@@ -50,7 +50,7 @@ for subject_label in subject_labels:
 
     subjectfolder = Path(rf'{derivatives_folder}/{subject_label}') #Get subject folders
 
-    single_run_glm = Path(subjectfolder, mvpa_folder)
+    single_run_glm = Path(subjectfolder, run_level_glm_folder)
     if not single_run_glm.exists():
         os.makedirs(single_run_glm), print(f"made {single_run_glm}")
 
